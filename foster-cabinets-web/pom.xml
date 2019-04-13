@@ -3,7 +3,7 @@
     <parent>
         <artifactId>fcc-foster-custom-cabinets</artifactId>
         <groupId>fostercustomcabinets.springframework</groupId>
-        <version>0.0.3</version>
+        <version>0.0.4-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,7 +13,7 @@
         <dependency>
             <artifactId>foster-cabinets-data</artifactId>
             <groupId>fostercustomcabinets.springframework</groupId>
-            <version>0.0.3</version>
+            <version>0.0.4-SNAPSHOT</version>
         </dependency>
 
         <dependency>
