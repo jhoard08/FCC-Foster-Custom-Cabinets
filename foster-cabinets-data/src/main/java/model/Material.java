@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class Material
+public class Material extends BaseEntity
 {
 	private MaterialType materialType;
 	private Job job;
