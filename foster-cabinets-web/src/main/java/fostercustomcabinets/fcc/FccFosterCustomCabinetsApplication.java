@@ -1,4 +1,4 @@
-package fostercustomcabinets.springframework.fccfostercustomcabinets;
+package fostercustomcabinets.fcc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

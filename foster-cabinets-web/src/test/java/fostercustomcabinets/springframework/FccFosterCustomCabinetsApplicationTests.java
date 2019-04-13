@@ -1,4 +1,4 @@
-package fostercustomcabinets.springframework.fccfostercustomcabinets;
+package fostercustomcabinets.springframework;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
