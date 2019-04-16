@@ -8,7 +8,6 @@ public class Material extends BaseEntity
 	private Job job;
 	private LocalDate date;
 
-
 	public MaterialType getMaterialType()
 	{
 		return materialType;

@@ -1,6 +1,5 @@
 package model;
 
-
 public class MaterialType extends BaseEntity
 {
 	private String name;
