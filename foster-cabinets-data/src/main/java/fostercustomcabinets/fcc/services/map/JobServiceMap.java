@@ -24,7 +24,7 @@ public class JobServiceMap extends AbstractMapService<Job, Long> implements JobS
 	@Override
 	public Job save(Job object)
 	{
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class LaborerServiceMap extends AbstractMapService<Laborer, Long> impleme
 	@Override
 	public Laborer save(Laborer object)
 	{
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override

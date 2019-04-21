@@ -23,14 +23,12 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Job job1 = new Job();
-        job1.setId(1L);
         job1.setFirstName("Bob");
         job1.setLastName("Coder");
 
         jobService.save(job1);
 
         Job job2 = new Job();
-        job2.setId(2L);
         job2.setFirstName("Frank");
         job2.setLastName("Michaels");
 
@@ -39,14 +37,12 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Loaded Jobs . . . .");
 
         Laborer laborer1 = new Laborer();
-        laborer1.setId(1L);
         laborer1.setFirstName("Anthony");
         laborer1.setLastName("Stull");
 
         laborerService.save(laborer1);
 
         Laborer laborer2 = new Laborer();
-        laborer2.setId(2L);
         laborer2.setFirstName("Joe");
         laborer2.setLastName("Casswell");
 

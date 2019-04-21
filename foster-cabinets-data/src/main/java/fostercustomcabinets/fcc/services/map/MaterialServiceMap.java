@@ -27,7 +27,7 @@ public class MaterialServiceMap extends AbstractMapService<Material, Long> imple
 
 	@Override public Material save(Material object)
 	{
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override public Material findById(Long id)
