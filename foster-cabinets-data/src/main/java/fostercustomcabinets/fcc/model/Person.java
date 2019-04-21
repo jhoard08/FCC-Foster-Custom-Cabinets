@@ -1,4 +1,4 @@
-package model;
+package fostercustomcabinets.fcc.model;
 
 public class Person extends BaseEntity
 {

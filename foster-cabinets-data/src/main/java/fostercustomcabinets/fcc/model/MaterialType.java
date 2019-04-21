@@ -1,4 +1,4 @@
-package model;
+package fostercustomcabinets.fcc.model;
 
 public class MaterialType extends BaseEntity
 {

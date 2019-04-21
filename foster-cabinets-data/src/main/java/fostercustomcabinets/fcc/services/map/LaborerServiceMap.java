@@ -1,11 +1,12 @@
-package services.map;
+package fostercustomcabinets.fcc.services.map;
 
-import model.Laborer;
-import services.CrudService;
-import services.LaborerService;
+import fostercustomcabinets.fcc.model.Laborer;
+import fostercustomcabinets.fcc.services.LaborerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class LaborerServiceMap extends AbstractMapService<Laborer, Long> implements LaborerService
 {
 	@Override

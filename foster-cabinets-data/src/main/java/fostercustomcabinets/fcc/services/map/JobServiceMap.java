@@ -1,11 +1,11 @@
-package services.map;
+package fostercustomcabinets.fcc.services.map;
 
-import model.Job;
-import services.CrudService;
-import services.JobService;
-
+import fostercustomcabinets.fcc.model.Job;
+import org.springframework.stereotype.Service;
+import fostercustomcabinets.fcc.services.JobService;
 import java.util.Set;
 
+@Service
 public class JobServiceMap extends AbstractMapService<Job, Long> implements JobService
 {
 

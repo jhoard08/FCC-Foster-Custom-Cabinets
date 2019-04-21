@@ -1,7 +1,6 @@
-package services;
+package fostercustomcabinets.fcc.services;
 
-import model.Job;
-
+import fostercustomcabinets.fcc.model.Job;
 
 
 public interface JobService extends CrudService<Job, Long>

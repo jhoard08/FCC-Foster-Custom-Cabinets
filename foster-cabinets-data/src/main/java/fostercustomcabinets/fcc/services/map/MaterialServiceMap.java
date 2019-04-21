@@ -1,12 +1,12 @@
-package services.map;
+package fostercustomcabinets.fcc.services.map;
 
-import model.Job;
-import model.Material;
-import services.JobService;
-import services.MaterialService;
+import fostercustomcabinets.fcc.model.Material;
+import fostercustomcabinets.fcc.services.MaterialService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class MaterialServiceMap extends AbstractMapService<Material, Long> implements MaterialService
 {
 

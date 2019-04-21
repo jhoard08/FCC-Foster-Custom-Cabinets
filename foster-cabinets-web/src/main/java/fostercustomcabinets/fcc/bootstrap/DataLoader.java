@@ -1,13 +1,11 @@
 package fostercustomcabinets.fcc.bootstrap;
 
-import model.Job;
-import model.Laborer;
+import fostercustomcabinets.fcc.model.Job;
+import fostercustomcabinets.fcc.model.Laborer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import services.JobService;
-import services.LaborerService;
-import services.map.JobServiceMap;
-import services.map.LaborerServiceMap;
+import fostercustomcabinets.fcc.services.JobService;
+import fostercustomcabinets.fcc.services.LaborerService;
 
 
 @Component
@@ -15,11 +13,10 @@ public class DataLoader implements CommandLineRunner {
 
     private final JobService jobService;
     private final LaborerService laborerService;
-    
-    public DataLoader() {
-        this.jobService = new JobServiceMap();
-        this.laborerService = new LaborerServiceMap();
 
+    public DataLoader(JobService jobService, LaborerService laborerService) {
+        this.jobService = jobService;
+        this.laborerService = laborerService;
     }
 
     @Override

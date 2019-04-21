@@ -1,4 +1,4 @@
-package model;
+package fostercustomcabinets.fcc.model;
 
 import java.io.Serializable;
 
