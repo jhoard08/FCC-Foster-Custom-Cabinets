@@ -5,6 +5,23 @@
     <title>List of Laborers</title>
 </head>
 <body>
-    <h1 th:text="'List of Laborers'">List of Laborers...</h1>
+
+<h1 th:text="'List of Laborers'">List of Laborers...</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="laborer : ${laborers}">
+        <td th:text="${laborer.id}">1</td>
+        <td th:text="${laborer.firstName}">Joe</td>
+        <td th:text="${laborer.lastName}">Buck</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
