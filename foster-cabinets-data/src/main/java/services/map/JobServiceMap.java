@@ -2,10 +2,11 @@ package services.map;
 
 import model.Job;
 import services.CrudService;
+import services.JobService;
 
 import java.util.Set;
 
-public class JobServiceMap extends AbstractMapService<Job, Long> implements CrudService<Job, Long>
+public class JobServiceMap extends AbstractMapService<Job, Long> implements JobService
 {
 
 	@Override
@@ -36,5 +37,10 @@ public class JobServiceMap extends AbstractMapService<Job, Long> implements Crud
 	public Job findById(Long id)
 	{
 		return super.findById(id);
+	}
+
+	@Override
+	public Job findByLastName(String lastName) {
+		return null;
 	}
 }

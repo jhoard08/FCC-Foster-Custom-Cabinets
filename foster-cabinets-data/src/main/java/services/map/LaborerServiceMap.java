@@ -2,10 +2,11 @@ package services.map;
 
 import model.Laborer;
 import services.CrudService;
+import services.LaborerService;
 
 import java.util.Set;
 
-public class LaborerServiceMap extends AbstractMapService<Laborer, Long> implements CrudService<Laborer, Long>
+public class LaborerServiceMap extends AbstractMapService<Laborer, Long> implements LaborerService
 {
 	@Override
 	public Set<Laborer> findAll()

@@ -1,11 +1,13 @@
 package services.map;
 
+import model.Job;
 import model.Material;
-import services.CrudService;
+import services.JobService;
+import services.MaterialService;
 
 import java.util.Set;
 
-public class MaterialServiceMap extends AbstractMapService<Material, Long> implements CrudService<Material, Long>
+public class MaterialServiceMap extends AbstractMapService<Material, Long> implements MaterialService
 {
 
 	@Override public Set<Material> findAll()
@@ -32,4 +34,5 @@ public class MaterialServiceMap extends AbstractMapService<Material, Long> imple
 	{
 		return super.findById(id);
 	}
+
 }
