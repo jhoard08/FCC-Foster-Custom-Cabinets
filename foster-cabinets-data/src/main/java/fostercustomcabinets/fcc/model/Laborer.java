@@ -1,10 +1,11 @@
 package fostercustomcabinets.fcc.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Laborer extends Person
 {
-    private Set<Specialty> specialties;
+    private Set<Specialty> specialties = new HashSet<>();
     private long pay;
 
     public Set<Specialty> getSpecialties() {

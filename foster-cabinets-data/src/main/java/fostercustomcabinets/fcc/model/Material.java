@@ -4,9 +4,18 @@ import java.time.LocalDate;
 
 public class Material extends BaseEntity
 {
+	private String name;
 	private MaterialType materialType;
 	private Job job;
 	private LocalDate date;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public MaterialType getMaterialType()
 	{

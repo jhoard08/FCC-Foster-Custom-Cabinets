@@ -1,5 +1,6 @@
 package fostercustomcabinets.fcc.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Job extends Person {
@@ -7,7 +8,7 @@ public class Job extends Person {
     private String address;
     private String city;
     private String telephone;
-    private Set<Material> materials;
+    private Set<Material> materials = new HashSet<>();
 
     public String getAddress() {
         return address;
