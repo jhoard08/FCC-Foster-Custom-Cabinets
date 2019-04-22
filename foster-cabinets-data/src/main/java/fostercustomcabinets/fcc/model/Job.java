@@ -1,6 +1,15 @@
 package fostercustomcabinets.fcc.model;
 
-public class Job extends Person
-{
+import java.util.Set;
 
+public class Job extends Person {
+    private Set<Material> materials;
+
+    public Set<Material> getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(Set<Material> materials) {
+        this.materials = materials;
+    }
 }
