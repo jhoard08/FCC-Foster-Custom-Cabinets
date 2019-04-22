@@ -2,6 +2,8 @@ package fostercustomcabinets.fcc.bootstrap;
 
 import fostercustomcabinets.fcc.model.Job;
 import fostercustomcabinets.fcc.model.Laborer;
+import fostercustomcabinets.fcc.model.MaterialType;
+import fostercustomcabinets.fcc.services.MaterialTypeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import fostercustomcabinets.fcc.services.JobService;
@@ -13,14 +15,24 @@ public class DataLoader implements CommandLineRunner {
 
     private final JobService jobService;
     private final LaborerService laborerService;
+    private final MaterialTypeService materialTypeService;
 
-    public DataLoader(JobService jobService, LaborerService laborerService) {
+    public DataLoader(JobService jobService, LaborerService laborerService, MaterialTypeService materialTypeService) {
         this.jobService = jobService;
         this.laborerService = laborerService;
+        this.materialTypeService = materialTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        MaterialType wood = new MaterialType();
+        wood.setName("Maple");
+        MaterialType savedWoodType = materialTypeService.save(wood);
+
+        MaterialType handles = new MaterialType();
+        wood.setName("Stainless Steel Knob");
+        MaterialType savedHandleType = materialTypeService.save(handles);
 
         Job job1 = new Job();
         job1.setFirstName("Bob");
