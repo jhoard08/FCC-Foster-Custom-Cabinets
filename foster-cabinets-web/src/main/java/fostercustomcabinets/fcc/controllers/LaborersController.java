@@ -15,7 +15,7 @@ public class LaborersController
 		this.laborerService = laborerService;
 	}
 
-	@RequestMapping({"","/","/laborers", "/laborers/index", "/laborers/index.html"})
+	@RequestMapping({"/laborers", "/laborers/index", "/laborers/index.html","/laborers.html"})
 	public String listLaborers(Model model){
 
 		model.addAttribute("laborers", laborerService.findAll());

@@ -22,4 +22,9 @@ public class JobController
 
 		return "jobs/index";
 	}
+
+	@RequestMapping("/find")
+	public String findJobs(){
+		return "notimplemented";
+	}
 }
