@@ -5,6 +5,7 @@ import java.util.Set;
 public class Laborer extends Person
 {
     private Set<Specialty> specialties;
+    private long pay;
 
     public Set<Specialty> getSpecialties() {
         return specialties;
@@ -13,8 +14,6 @@ public class Laborer extends Person
     public void setSpecialties(Set<Specialty> specialties) {
         this.specialties = specialties;
     }
-
-    private long pay;
 
     public long getPay() {
         return pay;
