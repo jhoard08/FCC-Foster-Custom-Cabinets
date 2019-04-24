@@ -1,13 +1,23 @@
 package fostercustomcabinets.fcc.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "jobs")
 public class Job extends Person {
 
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "telephone")
     private String telephone;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "job")
     private Set<Material> materials = new HashSet<>();
 
     public String getAddress() {
