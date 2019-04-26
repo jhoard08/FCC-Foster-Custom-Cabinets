@@ -4,11 +4,13 @@ import fostercustomcabinets.fcc.model.Laborer;
 import fostercustomcabinets.fcc.model.Specialty;
 import fostercustomcabinets.fcc.services.LaborerService;
 import fostercustomcabinets.fcc.services.SpecialitiesService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class LaborerMapService extends AbstractMapService<Laborer, Long> implements LaborerService
 {
 

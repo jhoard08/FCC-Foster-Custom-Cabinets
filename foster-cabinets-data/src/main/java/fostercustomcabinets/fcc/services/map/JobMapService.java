@@ -4,11 +4,13 @@ import fostercustomcabinets.fcc.model.Job;
 import fostercustomcabinets.fcc.model.Material;
 import fostercustomcabinets.fcc.services.MaterialService;
 import fostercustomcabinets.fcc.services.MaterialTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import fostercustomcabinets.fcc.services.JobService;
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class JobMapService extends AbstractMapService<Job, Long> implements JobService
 {
 	private final MaterialTypeService materialTypeService;

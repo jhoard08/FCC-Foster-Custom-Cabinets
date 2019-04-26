@@ -2,11 +2,13 @@ package fostercustomcabinets.fcc.services.map;
 
 import fostercustomcabinets.fcc.model.Specialty;
 import fostercustomcabinets.fcc.services.SpecialitiesService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class SpecialtyMapService extends AbstractMapService<Specialty, Long> implements SpecialitiesService {
 
     @Override

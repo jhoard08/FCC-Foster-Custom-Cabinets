@@ -2,11 +2,13 @@ package fostercustomcabinets.fcc.services.map;
 
 import fostercustomcabinets.fcc.model.Use;
 import fostercustomcabinets.fcc.services.UseService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class UseMapService extends AbstractMapService<Use, Long> implements UseService {
 
 

@@ -2,10 +2,12 @@ package fostercustomcabinets.fcc.services.map;
 
 import fostercustomcabinets.fcc.model.MaterialType;
 import fostercustomcabinets.fcc.services.MaterialTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class MaterialTypeMapService extends AbstractMapService<MaterialType, Long> implements MaterialTypeService {
     @Override
     public Set<MaterialType> findAll() {
