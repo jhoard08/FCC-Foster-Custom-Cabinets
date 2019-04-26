@@ -1,9 +1,16 @@
 package fostercustomcabinets.fcc.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "laborers")
 public class Laborer extends Person
@@ -16,19 +23,4 @@ public class Laborer extends Person
     @Column(name = "pay")
     private long pay;
 
-    public Set<Specialty> getSpecialties() {
-        return specialties;
-    }
-
-    public void setSpecialties(Set<Specialty> specialties) {
-        this.specialties = specialties;
-    }
-
-    public long getPay() {
-        return pay;
-    }
-
-    public void setPay(long pay) {
-        this.pay = pay;
-    }
 }

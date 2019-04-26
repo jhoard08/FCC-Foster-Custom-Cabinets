@@ -1,8 +1,15 @@
 package fostercustomcabinets.fcc.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "material_use")
 public class Use extends BaseEntity {
@@ -17,27 +24,5 @@ public class Use extends BaseEntity {
     @JoinColumn(name = "material_id")
     private Material material;
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(Material material) {
-        this.material = material;
-    }
+    public LocalDate getDate(){return date;}
 }
