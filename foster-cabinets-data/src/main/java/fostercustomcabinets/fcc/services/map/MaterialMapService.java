@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class MaterialServiceMap extends AbstractMapService<Material, Long> implements MaterialService
+public class MaterialMapService extends AbstractMapService<Material, Long> implements MaterialService
 {
 
 	@Override public Set<Material> findAll()

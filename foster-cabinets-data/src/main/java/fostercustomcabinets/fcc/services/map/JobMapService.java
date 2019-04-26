@@ -9,12 +9,12 @@ import fostercustomcabinets.fcc.services.JobService;
 import java.util.Set;
 
 @Service
-public class JobServiceMap extends AbstractMapService<Job, Long> implements JobService
+public class JobMapService extends AbstractMapService<Job, Long> implements JobService
 {
 	private final MaterialTypeService materialTypeService;
 	private final MaterialService materialService;
 
-	public JobServiceMap(MaterialTypeService materialTypeService, MaterialService materialService) {
+	public JobMapService(MaterialTypeService materialTypeService, MaterialService materialService) {
 		this.materialTypeService = materialTypeService;
 		this.materialService = materialService;
 	}

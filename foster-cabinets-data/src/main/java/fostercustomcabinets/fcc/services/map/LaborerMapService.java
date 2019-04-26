@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class LaborerServiceMap extends AbstractMapService<Laborer, Long> implements LaborerService
+public class LaborerMapService extends AbstractMapService<Laborer, Long> implements LaborerService
 {
 
 	private final SpecialitiesService specialitiesService;
 
-	public LaborerServiceMap(SpecialitiesService specialitiesService) {
+	public LaborerMapService(SpecialitiesService specialitiesService) {
 		this.specialitiesService = specialitiesService;
 	}
 
