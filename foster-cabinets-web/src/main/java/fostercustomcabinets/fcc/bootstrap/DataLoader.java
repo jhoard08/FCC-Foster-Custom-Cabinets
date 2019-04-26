@@ -1,12 +1,9 @@
 package fostercustomcabinets.fcc.bootstrap;
 
 import fostercustomcabinets.fcc.model.*;
-import fostercustomcabinets.fcc.services.MaterialTypeService;
-import fostercustomcabinets.fcc.services.SpecialitiesService;
+import fostercustomcabinets.fcc.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import fostercustomcabinets.fcc.services.JobService;
-import fostercustomcabinets.fcc.services.LaborerService;
 
 import java.time.LocalDate;
 
@@ -18,13 +15,15 @@ public class DataLoader implements CommandLineRunner {
     private final LaborerService laborerService;
     private final MaterialTypeService materialTypeService;
     private final SpecialitiesService specialitiesService;
+    private final UseService useService;
 
     public DataLoader(JobService jobService, LaborerService laborerService, MaterialTypeService materialTypeService,
-                      SpecialitiesService specialitiesService) {
+                      SpecialitiesService specialitiesService, UseService useService) {
         this.jobService = jobService;
         this.laborerService = laborerService;
         this.materialTypeService = materialTypeService;
         this.specialitiesService = specialitiesService;
+        this.useService = useService;
     }
 
     @Override
@@ -90,6 +89,12 @@ public class DataLoader implements CommandLineRunner {
         job2.getMaterials().add(franksMaterial);
 
         jobService.save(job2);
+
+        Use useMaple = new Use();
+        useMaple.setMaterial(franksMaterial);
+        useMaple.setDate(LocalDate.now());
+        useMaple.setDescription("Franks Job . . .");
+        useService.save(useMaple);
 
         System.out.println("Loaded Jobs . . . .");
 
