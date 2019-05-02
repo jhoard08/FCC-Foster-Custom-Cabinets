@@ -72,6 +72,11 @@ public class JobMapService extends AbstractMapService<Job, Long> implements JobS
 
 	@Override
 	public Job findByLastName(String lastName) {
-		return null;
+		return this.findAll()
+				.stream()
+				.filter(job -> job.getLastName().equalsIgnoreCase(lastName))
+				.findAny()
+				.orElse(null);
+
 	}
 }
