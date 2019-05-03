@@ -15,7 +15,7 @@ public class JobController
 		this.jobService = jobService;
 	}
 
-	@RequestMapping({"","/","/jobs","/jobs/index","/jobs/index.html"})
+	@RequestMapping({"","/","/index","/index.html"})
 	public String jobList(Model model){
 
 		model.addAttribute("jobs", jobService.findAll());
