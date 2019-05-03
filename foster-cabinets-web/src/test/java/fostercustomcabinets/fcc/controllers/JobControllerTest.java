@@ -15,7 +15,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -71,5 +73,15 @@ class JobControllerTest {
         mockMvc.perform(get("/jobs/find"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("notimplemented"));
+    }
+
+    @Test
+    void displayOwner() throws Exception {
+        when(jobService.findById(anyLong())).thenReturn(Job.builder().id(1L).build());
+
+        mockMvc.perform(get("/jobs/123"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("jobs/jobDetails"))
+                .andExpect(model().attribute("job", hasProperty("id", is(1L))));
     }
 }
