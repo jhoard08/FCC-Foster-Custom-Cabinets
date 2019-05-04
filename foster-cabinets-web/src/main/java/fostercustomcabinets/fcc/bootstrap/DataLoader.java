@@ -39,7 +39,7 @@ public class DataLoader implements CommandLineRunner {
 
     private void loadData() {
         MaterialType wood = new MaterialType();
-        wood.setName("Maple");
+        wood.setName("Wood");
         MaterialType savedWoodType = materialTypeService.save(wood);
 
         MaterialType handles = new MaterialType();
