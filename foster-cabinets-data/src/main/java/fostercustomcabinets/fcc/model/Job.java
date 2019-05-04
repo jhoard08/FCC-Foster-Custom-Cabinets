@@ -19,7 +19,10 @@ public class Job extends Person {
         this.address = address;
         this.city = city;
         this.telephone = telephone;
-        this.materials = materials;
+
+        if(materials != null){
+            this.materials = materials;
+        }
     }
 
     @Column(name = "address")
@@ -34,4 +37,21 @@ public class Job extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "job")
     private Set<Material> materials = new HashSet<>();
 
+    public Material getMaterial(String name) {
+        return getMaterial(name, false);
+    }
+
+    public Material getMaterial(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for(Material material : materials){
+            if(!ignoreNew || !material.isNew()) {
+                String compName = material.getName();
+                compName = compName.toLowerCase();
+                if(compName.equals(name)){
+                    return material;
+                }
+            }
+        }
+        return null;
+    }
 }

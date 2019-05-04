@@ -12,11 +12,22 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "materials")
 public class Material extends BaseEntity
 {
+	@Builder
+	public Material(Long id, String name, MaterialType materialType, Job job, LocalDate date, Set<Use> use) {
+		super(id);
+		this.name = name;
+		this.materialType = materialType;
+		this.job = job;
+		this.date = date;
+
+		if(use == null || use.size() > 0){
+			this.use = use;
+		}
+	}
 
 	@Column(name = "name")
 	private String name;

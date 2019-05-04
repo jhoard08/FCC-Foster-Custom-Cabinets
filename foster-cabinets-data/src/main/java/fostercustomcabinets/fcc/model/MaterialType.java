@@ -10,11 +10,15 @@ import javax.persistence.Table;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-@Table(name = "type")
+@Table(name = "types")
 public class MaterialType extends BaseEntity
 {
+	@Builder
+	public MaterialType(Long id, String name) {
+		super(id);
+		this.name = name;
+	}
 
 	@Column(name = "name")
 	private String name;
