@@ -30,24 +30,24 @@
 
 <a th:href="@{{id}/edit(id=${job.id})}" class="btn btn-default">Edit
     Job</a>
-<a th:href="@{{id}/pets/new(id=${job.id})}" class="btn btn-default">Add
+<a th:href="@{{id}/materials/new(id=${job.id})}" class="btn btn-default">Add
     New Material</a>
 
 <br />
 <br />
 <br />
-<h2>Material and Uses</h2>
+<h2>Material and Usage</h2>
 
 <table class="table table-striped">
 
-    <tr th:each="pet : ${job.materials}">
+    <tr th:each="material : ${job.materials}">
         <td valign="top">
             <dl class="dl-horizontal">
                 <dt>Name</dt>
                 <dd th:text="${material.name}" /></dd>
-                <dt>Use Date</dt>
+                <dt>Usage Date</dt>
                 <dd
-                        th:text="${#temporals.format(material.birthDate, 'yyyy-MM-dd')}" /></dd>
+                        th:text="${#temporals.format(material.date, 'yyyy-MM-dd')}" /></dd>
                 <dt>Type</dt>
                 <dd th:text="${material.materialType}" /></dd>
             </dl>
@@ -56,11 +56,11 @@
             <table class="table-condensed">
                 <thead>
                 <tr>
-                    <th>Use Date</th>
+                    <th>Usage Date</th>
                     <th>Description</th>
                 </tr>
                 </thead>
-                <tr th:each="visit : ${material.uses}">
+                <tr th:each="use : ${material.use}">
                     <td th:text="${#temporals.format(use.date, 'yyyy-MM-dd')}"></td>
                     <td th:text="${use?.description}"></td>
                 </tr>
@@ -70,7 +70,7 @@
                         Material</a></td>
                     <td><a
                             th:href="@{{jobId}/materials/{materialId}/uses/new(jobId=${job.id},materialId=${material.id})}">Add
-                        uses</a></td>
+                        usage</a></td>
                 </tr>
             </table>
         </td>
