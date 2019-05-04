@@ -2,11 +2,13 @@ package fostercustomcabinets.fcc.services.map;
 
 import fostercustomcabinets.fcc.model.Job;
 import fostercustomcabinets.fcc.model.Material;
+import fostercustomcabinets.fcc.services.JobService;
 import fostercustomcabinets.fcc.services.MaterialService;
 import fostercustomcabinets.fcc.services.MaterialTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import fostercustomcabinets.fcc.services.JobService;
+
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -78,5 +80,11 @@ public class JobMapService extends AbstractMapService<Job, Long> implements JobS
 				.findAny()
 				.orElse(null);
 
+	}
+
+	@Override public List<Job> findAllByLastNameLike(String lastName)
+	{
+		//todo -impl
+		return null;
 	}
 }
