@@ -1,7 +1,6 @@
 package fostercustomcabinets.fcc.controllers;
 
 import fostercustomcabinets.fcc.model.Job;
-import fostercustomcabinets.fcc.model.Material;
 import fostercustomcabinets.fcc.model.MaterialType;
 import fostercustomcabinets.fcc.services.JobService;
 import fostercustomcabinets.fcc.services.MaterialService;
@@ -18,8 +17,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verify;
@@ -90,7 +87,7 @@ class MaterialControllerTest {
     void initUpdateForm() throws Exception {
         when(jobService.findById(anyLong())).thenReturn(job);
         when(materialTypeService.findAll()).thenReturn(materialTypes);
-        when(materialService.findById(anyLong())).thenReturn(Material.builder().id(2L).build());
+        //when(materialService.findById(anyLong())).thenReturn(Material.builder().id(2L).build());
 
         mockMvc.perform(get("/jobs/1/materials/2/edit"))
                 .andExpect(status().isOk())
