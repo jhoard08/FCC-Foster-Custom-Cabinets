@@ -7,15 +7,18 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/jobs")
 @Controller
 public class JobController
 {
+	private final static String VIEWS_JOB_CREATE_OR_UPDATE_FORM = "jobs/createOrUpdateJob";
 	private final JobService jobService;
 
 	public JobController(JobService jobService) {
@@ -58,5 +61,38 @@ public class JobController
 	    mav.addObject(jobService.findById(jobId));
 	    return mav;
     }
+
+    @GetMapping("/new")
+	public String initCreationForm(Model model){
+		model.addAttribute("job", Job.builder().build());
+		return VIEWS_JOB_CREATE_OR_UPDATE_FORM;
+	}
+
+	@PostMapping("/new")
+	public String processCreationForm(@Valid Job job, BindingResult result){
+		if(result.hasErrors()){
+			return VIEWS_JOB_CREATE_OR_UPDATE_FORM;
+		}else{
+			Job savedJob = jobService.save(job);
+			return "redirect:/jobs/" + savedJob.getId();
+		}
+	}
+
+	@GetMapping("/{jobId}/edit")
+	public String initUpdateJobForm(@PathVariable Long jobId, Model model){
+		model.addAttribute(jobService.findById(jobId));
+		return VIEWS_JOB_CREATE_OR_UPDATE_FORM;
+	}
+
+	@PostMapping("/{jobId}/edit")
+	public String processUpdateJobForm(@Valid Job job, BindingResult result, @PathVariable Long jobId){
+		if(result.hasErrors()){
+			return VIEWS_JOB_CREATE_OR_UPDATE_FORM;
+		}else{
+			job.setId(jobId);
+			Job savedJob = jobService.save(job);
+			return "redirect:/jobs/" + savedJob.getId();
+		}
+	}
 
 }

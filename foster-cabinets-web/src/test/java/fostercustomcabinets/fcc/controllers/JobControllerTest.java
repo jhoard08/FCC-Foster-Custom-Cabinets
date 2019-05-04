@@ -5,6 +5,7 @@ import fostercustomcabinets.fcc.services.JobService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -15,12 +16,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
 import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
@@ -90,5 +92,49 @@ class JobControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("jobs/jobDetails"))
                 .andExpect(model().attribute("job", hasProperty("id", is(1L))));
+    }
+
+    @Test
+    void initCreationForm() throws Exception{
+        mockMvc.perform(get("/jobs/new"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("jobs/createOrUpdateJob"))
+                .andExpect(model().attributeExists("job"));
+        verifyZeroInteractions(jobService);
+    }
+
+    @Test
+    void processCreationForm() throws Exception{
+        when(jobService.save(ArgumentMatchers.any())).thenReturn(Job.builder().id(1L).build());
+
+        mockMvc.perform(post("/jobs/new"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/jobs/1"))
+                .andExpect(model().attributeExists("job"));
+        verify(jobService).save(ArgumentMatchers.any());
+    }
+
+    @Test
+    void initUpdateOwnerForm() throws Exception {
+        when(jobService.findById(anyLong())).thenReturn(Job.builder().id(1L).build());
+
+        mockMvc.perform(get("/jobs/1/edit"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("jobs/createOrUpdateJob"))
+                .andExpect(model().attributeExists("job"));
+
+        verifyZeroInteractions(jobService);
+    }
+
+    @Test
+    void processUpdateOwnerForm() throws Exception {
+        when(jobService.save(ArgumentMatchers.any())).thenReturn(Job.builder().id(1L).build());
+
+        mockMvc.perform(post("/jobs/1/edit"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/jobs/1"))
+                .andExpect(model().attributeExists("job"));
+
+        verify(jobService).save(ArgumentMatchers.any());
     }
 }
